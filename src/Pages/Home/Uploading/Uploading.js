@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 const Uploading = () => {
+    
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const{user} = useContext(AuthContext)
     const imgHostKey = process.env.REACT_APP_imgbb_key;
+    const date = new Date();
 
     const handleAddPost= data => {
 
@@ -24,6 +28,9 @@ const Uploading = () => {
                     const file = {
                         text: data?.text,
                         image: imageData.data.url,
+                        name: user?.displayName,
+                        profilePic:user?.photoURL,
+                        date 
                     
                     }
                     fetch('http://localhost:5000/upload', {
