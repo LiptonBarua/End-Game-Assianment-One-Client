@@ -10,6 +10,8 @@ const Register = () => {
 
 
   const handleSignUp=(event)=>{
+
+    
     event.preventDefault()
     const form = event.target;
     const name= form.name.value;

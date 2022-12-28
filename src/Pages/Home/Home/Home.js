@@ -4,7 +4,7 @@ import Uploading from '../Uploading/Uploading';
 
 const Home = () => {
     return (
-        <div>
+        <div className="max-w-[80%] mx-auto">
             <Uploading></Uploading>
             <PostImage></PostImage>
         </div>

@@ -69,7 +69,7 @@ const Uploading = () => {
                             <input type="file" required {...register("image", { required: 'Name is Required' })} className="input input-bordered w-full " />
                             {errors.image && <p role="alert" className='text-red-500'>{errors.image?.message}</p>}
                         </div>
-                        <input className='w-full btn btn-secondary mt-5' value='Post' type="submit" />
+                        <input className='w-full btn bg-black text-white mt-5' value='Post' type="submit" />
                     </form>
 
                 </div>

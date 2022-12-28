@@ -31,7 +31,7 @@ const Navbar = () => {
   </>
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-black text-white px-20 md:px-36">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -41,7 +41,7 @@ const Navbar = () => {
               {manuItem}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">L.B Social</a>
+          <a className="btn btn-ghost font-bold normal-case text-xl">L.B Social</a>
         </div>
         <div className="navbar-center flex">
           <ul className="menu menu-horizontal px-1">
@@ -50,11 +50,19 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+           {
+            user?.uid?
+            <div className='flex'>
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar flex">
               <div className="w-10 rounded-full">
                 <img src={user?.photoURL} alt="" />
               </div>
             </label>
+            <button onClick={handleLogOut} className="btn ml-4 border-none text-black bg-gradient-to-r from-violet-500 to-fuchsia-500">Log Out</button>
+            </div>
+            :
+            <li><Link to='/login'>Login</Link></li>
+           }
             <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box">
               {
                 user?.uid?
@@ -65,10 +73,9 @@ const Navbar = () => {
 
                 </a>
               </li>
-              <button onClick={handleLogOut} className="btn btn-secondary">Log Out</button>
                 </>
                 :
-                <li><Link to='/login'>Login</Link></li>
+                <li><a>Profile</a></li>
               }
              
 
@@ -76,6 +83,8 @@ const Navbar = () => {
              
             </ul>
           </div>
+
+          
         </div>
       </div>
     </div>
