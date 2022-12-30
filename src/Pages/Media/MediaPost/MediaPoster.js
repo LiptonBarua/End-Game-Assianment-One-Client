@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 import { toast } from 'react-hot-toast';
 
 const MediaPoster = ({upload}) => {
+  const [like, setLike] = useState(false);
     const {_id, name, image, profilePic, date, text } = upload;
 
 
+    const likeHandler = () => {
+
+      setLike(true)
+      // setLike(isLike ? like-1 : like+1);
+    }
 
     return (
         <div>
@@ -35,10 +41,13 @@ const MediaPoster = ({upload}) => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
 
-                    <button><img src="https://www.freeiconspng.com/thumbs/like-icon-png/black-like-icon-png-13.png" className='w-5 h-5' alt="" /></button>
-                    <button type="button" title="Like post" className="flex items-center  justify-center">
-                      <img src="https://uxwing.com/wp-content/themes/uxwing/download/hand-gestures/like-icon.png" className='w-5 h-5' alt="" />
-                    </button>
+                  {
+                like ? <img src="https://www.freeiconspng.com/thumbs/like-icon-png/black-like-icon-png-13.png" className='w-5 h-5' alt="" />
+                  :
+                  <button onClick={likeHandler} type="button" title="Like post" className="flex items-center  justify-center">
+                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/hand-gestures/like-icon.png" className='w-5 h-5' alt="" />
+                  </button>
+              }
 
                     <button type="button" title="Add a comment" className="flex items-center justify-center">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current">
@@ -66,7 +75,7 @@ const MediaPoster = ({upload}) => {
                     </div>
                     <span className="text-sm">Liked by
                       <span className="font-semibold">Mamba UI</span>and
-                      {/* <span className="font-semibold ml-1">{like + 0}</span> */}
+                      <span className="font-semibold ml-1">{like + 0}</span>
                     </span>
                   </div>
                 </div>
