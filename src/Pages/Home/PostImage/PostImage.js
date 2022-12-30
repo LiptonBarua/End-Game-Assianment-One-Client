@@ -7,7 +7,7 @@ const PostImage = () => {
  
     const[uploads, setUploads] =useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/upload')
+        fetch('https://end-game-assianment-server-1.vercel.app/upload')
         .then(res=>res.json())
         .then(data=>setUploads(data))
     })

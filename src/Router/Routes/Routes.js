@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main/Main";
 import About from "../../Pages/About/About/About";
 import CommentDetails from "../../Pages/CommentDetails/CommentDetails/CommentDetails";
+import DefaultPage from "../../Pages/DefaultPage/DefaultPage";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Media from "../../Pages/Media/Media/Media";
@@ -11,7 +12,9 @@ import PrivateRouter from "../PrivateRouter/PrivateRouter";
 
 const router= createBrowserRouter([
     {
-    path: '/', element: <Main></Main>, children: [
+    path: '/', element: <Main></Main>, 
+    errorElement: <DefaultPage></DefaultPage>,
+    children: [
         {
             path: '/', element: <PrivateRouter><Home></Home></PrivateRouter>
         },
@@ -22,7 +25,7 @@ const router= createBrowserRouter([
         {
             path: '/commentDetails/:id',
              element: <CommentDetails></CommentDetails>,
-            loader: ({params})=>fetch(`http://localhost:5000/upload/${params.id}`)
+            loader: ({params})=>fetch(`https://end-game-assianment-server-1.vercel.app/upload/${params.id}`)
         },
   
         {

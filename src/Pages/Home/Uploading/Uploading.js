@@ -33,7 +33,7 @@ const Uploading = () => {
                         date 
                     
                     }
-                    fetch('http://localhost:5000/upload', {
+                    fetch('https://end-game-assianment-server-1.vercel.app/upload', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

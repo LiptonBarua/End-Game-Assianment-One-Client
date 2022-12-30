@@ -26,7 +26,7 @@ const PostImages = ({ upload }) => {
       name: user?.displayName,
       date: _id
     }
-    fetch(`http://localhost:5000/upload/${_id}`, {
+    fetch(`https://end-game-assianment-server-1.vercel.app/upload/${_id}`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json',
@@ -52,7 +52,7 @@ const PostImages = ({ upload }) => {
       updateLike
     }
 
-    fetch(`http://localhost:5000/likes/${_id}`,{
+    fetch(`https://end-game-assianment-server-1.vercel.app/likes/${_id}`,{
       method: 'PATCH',
       headers: {
         'content-type': 'application/json',

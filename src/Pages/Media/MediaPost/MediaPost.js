@@ -6,13 +6,13 @@ const MediaPost = () => {
   const [uploads, setUploads] = useState([])
  
   useEffect(() => {
-    fetch('http://localhost:5000/upload')
+    fetch('https://end-game-assianment-server-1.vercel.app/upload')
       .then(res => res.json())
       .then(data => setUploads(data))
   })
 
   // const likePost = (id) => {
-  //   fetch(`http://localhost:5000/upload/${id}`, {
+  //   fetch(`https://end-game-assianment-server-1.vercel.app/upload/${id}`, {
   //     method: "PATCH",
 
   //     body: JSON.stringify(like)

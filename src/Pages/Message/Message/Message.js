@@ -22,7 +22,7 @@ const Message = () => {
     return (
         <div>
             <div className="">
-                <div className="form-container my-32">
+                <div className="form-container my-10">
                     <div className="left-container">
                         <div className="left-inner-container">
                             <img src="https://www.computerhope.com/issues/pictures/send-text-message.png" alt="" className='mt-11' />
