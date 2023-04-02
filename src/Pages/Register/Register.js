@@ -22,12 +22,11 @@ const Register = () => {
     createUser(email, password)
     .then(result=>{
         const user = result.user;
-        navigate('/')
-        form.reset();
-       
         handleUpdateProfile(name, photoURL)
         toast.success('Please your email verify');
         console.log(user)
+        navigate('/')
+        form.reset();
         
     })
     .catch(error=>{

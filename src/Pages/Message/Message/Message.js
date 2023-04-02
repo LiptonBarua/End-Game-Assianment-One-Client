@@ -32,7 +32,7 @@ const Message = () => {
                         <div className="right-inner-container">
                             <form ref={form} onSubmit={sendEmail}>
                               <div className=''>
-                              <h2 className="lg-view">Contact Me</h2>
+                              <h2 id="view" className="lg-view">Contact Me</h2>
                            
                            <div>
                                <p>Name</p>

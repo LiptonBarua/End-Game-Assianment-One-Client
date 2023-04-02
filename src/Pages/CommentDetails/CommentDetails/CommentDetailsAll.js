@@ -10,11 +10,14 @@ const CommentDetailsAll = ({ comment }) => {
                     
                     <div className="w-10 rounded-full">
                         
+                        
                         <img src={comment.profilePic} />
                     </div>
                 </div>
+                <p className="text-sm">
+                    <span className="text-base font-semibold mr-1">{comment.name}</span>{comment.comments}
+                  </p>
                
-                <div className="">{comment.comments}</div>
             </div>
 
         </div>

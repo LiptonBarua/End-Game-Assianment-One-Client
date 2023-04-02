@@ -6,10 +6,10 @@ import './Login.css'
 
 const Login = () => {
    const{signIn}= useContext(AuthContext);
-   const location = useLocation();
    const navigate = useNavigate();
- 
-   const from = location.state?.from?.pathname || '/';
+  const location = useLocation();
+
+   const from = location?.state?.from?.pathname || '/';
 
 
 	const handleLogSubmit=(event)=>{
@@ -22,8 +22,8 @@ const Login = () => {
 		.then(result=>{
 			const user= result.user;
 			toast.success('Login Successfully');
-			navigate(from, {replace: true})
 			form.reset()
+			navigate(from, {replace: true})
 		})
 		.catch(error=>{
 			toast.success("Incorrect password'")

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import MediaPoster from './MediaPoster';
 
@@ -6,33 +7,22 @@ const MediaPost = () => {
   const [uploads, setUploads] = useState([])
  
   useEffect(() => {
-    fetch('https://end-game-assianment-server-1.vercel.app/upload')
+    fetch('http://localhost:5000/upload')
       .then(res => res.json())
       .then(data => setUploads(data))
   })
 
-  // const likePost = (id) => {
-  //   fetch(`https://end-game-assianment-server-1.vercel.app/upload/${id}`, {
-  //     method: "PATCH",
 
-  //     body: JSON.stringify(like)
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       console.log(data)
-  //       toast.success('like successfully')
-  //     })
-  // }
 
 
 
   return (
     <div className='my-10'>
-      <div className='grid gap-8 justify-center'>
+      <Link> <div  className="container grid grid-cols-2 gap-4 p-4 mx-auto md:grid-cols-4">
         {
           uploads?.map(upload => <MediaPoster key={upload._id} upload={upload}></MediaPoster>)
         }
-        </div>
+        </div></Link>
         </div>
   );
 };

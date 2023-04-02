@@ -33,7 +33,7 @@ const Uploading = () => {
                         date 
                     
                     }
-                    fetch('https://end-game-assianment-server-1.vercel.app/upload', {
+                    fetch('http://localhost:5000/upload', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
@@ -53,18 +53,18 @@ const Uploading = () => {
             })
     }
     return (
-        <div>
+        <div className=' flex justify-center'>
 
                 <div className=' p-7'>
                     <form onSubmit={handleSubmit(handleAddPost)}>
 
 
-                    <div className="form-control w-full ">
+                    <div className="form-control">
                             <label className="label"><span className="label-text">Text</span></label>
                             <input placeholder='Add to your post' required type="text" {...register("text", { required: 'Name is Required' })} className="input input-bordered w-full " />
                             {errors.name && <p role="alert" className='text-red-500'>{errors.name?.message}</p>}
                         </div>
-                        <div className="form-control w-full ">
+                        <div className="form-control">
                             <label className="label"><span className="label-text">Photo</span></label>
                             <input type="file" required {...register("image", { required: 'Name is Required' })} className="input input-bordered w-full " />
                             {errors.image && <p role="alert" className='text-red-500'>{errors.image?.message}</p>}

@@ -5,12 +5,14 @@ import Loading from '../../Pages/Loading/Loading/Loading';
 
 const PrivateRouter = ({children}) => {
     const {user, loading} = useContext(AuthContext);
-    const loacation = useLocation();
+    const location = useLocation();
     if(loading){
-        return  <Loading></Loading>
+        return  <div>
+            <Loading></Loading>
+        </div>
     }
    if(!user){
-    return <Navigate to='/login' state={{from: loacation}} replace></Navigate>
+    return <Navigate to='/login' state={{from: location}} replace></Navigate>
    }
    return children;
 };
